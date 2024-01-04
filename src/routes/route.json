@@ -1,0 +1,13 @@
+{
+  "HOME": "/",
+  "MOVIE_LIST": "movie-list",
+  "MOVIE_DETAILS": "movie-details",
+  "SEATS": "seats",
+  "TICKET": "ticket",
+  "PAYMENT": "payment",
+  "FINAL_TICKET": "final-ticket",
+  "LOGIN": "login",
+  "SIGNUP": "signup",
+  "CONTACT_US": "contact-us",
+  "SUPPORT": "support"
+}

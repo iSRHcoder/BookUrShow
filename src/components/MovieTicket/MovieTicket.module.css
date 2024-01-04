@@ -1,0 +1,45 @@
+.ticket {
+  padding: 5%;
+  width: 25%;
+}
+
+@media (max-width: 500px) {
+  .ticketPage {
+    width: 100vw;
+    flex-direction: column;
+  }
+  .popcorn {
+    width: 80%;
+    height: 70%;
+  }
+  .ticket {
+    width: 100%;
+  }
+  .ticketMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+  }
+}
+@media (max-width: 800px) {
+  .ticketPage {
+    width: 100vw;
+    flex-direction: column;
+  }
+  .popcorn {
+    width: 80%;
+    height: 70%;
+  }
+  .ticket {
+    width: 40%;
+  }
+  .ticketMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+  }
+}
