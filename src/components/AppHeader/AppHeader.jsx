@@ -37,7 +37,7 @@ const AppHeader = () => {
             <img src="/images/bookmyshow-logo-transformed.png" width={150} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar">
+          <Navbar.Collapse id="navbar" className="custom-navbar-collapse">
             <Nav className="me-auto">
               <Nav.Link>
                 <NavLink
@@ -110,10 +110,10 @@ const AppHeader = () => {
                 </>
               )}
             </div>
+            <Button variant="light" onClick={darkClickHandler}>
+              <i className={iconClasses}></i>
+            </Button>
           </Navbar.Collapse>
-          <Button variant="light" onClick={darkClickHandler}>
-            <i className={iconClasses}></i>
-          </Button>
         </Container>
       </Navbar>
     </header>

@@ -13,3 +13,7 @@
     transform: scale(1.2);
   }
 }
+.custom-navbar-collapse {
+  z-index: 1000;
+  background-color: #ffc107;
+}
