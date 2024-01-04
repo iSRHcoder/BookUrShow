@@ -17,7 +17,7 @@ const PageRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path={route.HOME} element={<MainLayout />}>
+        <Route path={route.MOVIE_LIST} element={<MainLayout />}>
           <Route index element={<MoviesListPage />} />
           <Route path={route.MOVIE_LIST} element={<MoviesListPage />}>
             <Route path=":page" element={<MoviesListPage />} />
