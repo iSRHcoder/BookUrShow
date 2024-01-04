@@ -7,13 +7,10 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { UserContext } from "../../contexts/UserContext";
 
 const AppHeader = () => {
-  const bgStyle = {
-    backgroundColor: "grey",
-  };
   const activeClasses = ({ isActive }) =>
     isActive
-      ? `text-dark fs-4 fw-bold text-decoration-none ms-3 ${bgStyle}`
-      : "text-decoration-none fs-5 text-dark ms-3";
+      ? `text-dark fs-4 fw-bold text-decoration-none ms-3 md:ms-0 md:my-1`
+      : "text-decoration-none fs-5 text-dark ms-3 md:ms-0 md:my-1";
 
   const { isAuth, logoutHandler } = useContext(AuthContext);
   const { userData } = useContext(UserContext);
@@ -30,9 +27,8 @@ const AppHeader = () => {
   return (
     <header>
       <Navbar
-        bg="light"
+        bg="warning"
         expand="lg"
-        data-bs-theme="dark"
         style={{ maxHeight: "70px" }}
         className="m-auto"
       >
@@ -80,41 +76,41 @@ const AppHeader = () => {
                 </NavLink>
               </Nav.Link>
             </Nav>
-          </Navbar.Collapse>
-          <div className="d-flex flex-wrap justify-content-center text-center">
-            {!isAuth && (
-              <>
-                <NavLink to={route.LOGIN}>
-                  <Button className="me-2" variant="outline-primary">
-                    LogIn
-                  </Button>
-                </NavLink>
-                <NavLink to={route.SIGNUP}>
-                  <Button className="me-2" variant="outline-primary">
-                    SignUp
-                  </Button>
-                </NavLink>
-              </>
-            )}
+            <div className="d-flex flex-wrap justify-content-center text-center md:justify-end">
+              {!isAuth && (
+                <>
+                  <NavLink to={route.LOGIN}>
+                    <Button className="me-2" variant="outline-primary">
+                      LogIn
+                    </Button>
+                  </NavLink>
+                  <NavLink to={route.SIGNUP}>
+                    <Button className="me-2" variant="outline-primary">
+                      SignUp
+                    </Button>
+                  </NavLink>
+                </>
+              )}
 
-            {isAuth && (
-              <>
-                <NavLink>
-                  <Button
-                    className="me-2"
-                    variant="outline-primary"
-                    onClick={logoutHandler}
-                  >
-                    LogOut
+              {isAuth && (
+                <>
+                  <NavLink>
+                    <Button
+                      className="me-2"
+                      variant="outline-primary"
+                      onClick={logoutHandler}
+                    >
+                      LogOut
+                    </Button>
+                  </NavLink>
+                  <Button variant="outline-dark" className="me-2">
+                    <i className="bi bi-person-fill fs-6"></i>
+                    {userData.userName}
                   </Button>
-                </NavLink>
-                <Button variant="outline-dark" className="me-2">
-                  <i className="bi bi-person-fill fs-6"></i>
-                  {userData.userName}
-                </Button>
-              </>
-            )}
-          </div>
+                </>
+              )}
+            </div>
+          </Navbar.Collapse>
           <Button variant="light" onClick={darkClickHandler}>
             <i className={iconClasses}></i>
           </Button>

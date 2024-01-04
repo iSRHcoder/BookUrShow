@@ -26,7 +26,7 @@ const MyPagination = ({ active, totalPages, onPageChange }) => {
 
   return (
     <>
-      <Pagination size="lg">{items}</Pagination>
+      <Pagination size="sm">{items}</Pagination>
     </>
   );
 };
