@@ -43,15 +43,6 @@ const AppHeader = () => {
                 <NavLink
                   className={activeClasses}
                   style={{ fontFamily: "cursive" }}
-                  to={route.HOME}
-                >
-                  Home
-                </NavLink>
-              </Nav.Link>
-              <Nav.Link>
-                <NavLink
-                  className={activeClasses}
-                  style={{ fontFamily: "cursive" }}
                   to={route.MOVIE_LIST}
                 >
                   Movies
