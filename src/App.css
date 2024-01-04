@@ -17,3 +17,12 @@
   z-index: 1000;
   background-color: #ffc107;
 }
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(80%);
+  }
+}

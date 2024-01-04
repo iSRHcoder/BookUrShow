@@ -220,14 +220,14 @@ const SeatLayout = ({ mid, page }) => {
       <ZoomingButton
         btnLable="Book Tickets"
         bottom="30%"
-        left="85%"
+        left="75%"
         variant="success"
         onClick={bookTicketsBtnHandler}
       />
       <ZoomingButton
         btnLable="Clear Seats"
         bottom="80%"
-        left="85.5%"
+        left="75.5%"
         variant="danger"
         onClick={clearSeatsBtnHandle}
       />

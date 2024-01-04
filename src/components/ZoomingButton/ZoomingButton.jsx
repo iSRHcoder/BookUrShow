@@ -18,6 +18,7 @@ const ZoomingButton = ({
         transform: "translateX(40%)",
         textAlign: "center",
         display: "inline-block",
+        animation: "slideRight 5s ease-in-out infinite alternate",
       }}
     >
       <Button

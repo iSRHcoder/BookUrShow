@@ -347,7 +347,7 @@ const MovieDetails = ({ mid, page }) => {
       <ZoomingButton
         btnLable="20% off"
         bottom="90%"
-        left="90%"
+        left="70%"
         variant="info"
         pointerEvents="none"
       />
