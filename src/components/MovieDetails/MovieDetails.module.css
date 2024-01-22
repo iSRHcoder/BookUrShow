@@ -15,6 +15,7 @@
 }
 .tagline {
   color: grey;
+  text-align: start;
   width: 90%;
 }
 .overview {

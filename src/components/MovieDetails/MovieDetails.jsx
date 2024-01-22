@@ -144,11 +144,7 @@ const MovieDetails = ({ mid, page }) => {
       {isLoader && !isError && <Loader />}
       {!isLoader && !isError && (
         <div style={detailsStyle}>
-          <div
-            className={styles.detailsStyle}
-            //className="d-flex justify-content-center align-items-center p-5"
-            style={{ minWidth: "100vw" }}
-          >
+          <div className={styles.detailsStyle} style={{ minWidth: "100vw" }}>
             <div className="d-flex justify-content-center align-items-center m-2">
               <img
                 style={{

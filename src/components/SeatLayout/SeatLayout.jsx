@@ -12,6 +12,7 @@ import ZoomingButton from "../ZoomingButton/ZoomingButton";
 import { SelectedSeatsContext } from "../../contexts/SelectedSeatsContext";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+// import styles from "./SeatLayout.module.css";
 
 const SeatLayout = ({ mid, page }) => {
   const [movieDetails, setMovieDetails] = useState({});
@@ -143,97 +144,104 @@ const SeatLayout = ({ mid, page }) => {
   };
 
   return (
-    <>
-      <hr />
-      <div className="d-flex justify-content-start align-items-center ms-5">
-        <img
-          style={{
-            maxWidth: "60px",
-            height: "80px",
-            borderRadius: "10%",
-          }}
-          src={
-            movieDetails.poster_path
-              ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
-              : "/svg's/error-svgrepo-com.svg"
-          }
-          alt={`${movieDetails.title} poster`}
-        />
-        <div className="ms-3">
-          <h3>
-            {movieDetails.original_title} -
-            {movieDetails.original_language === "hi"
-              ? "Hindi"
-              : `${movieDetails.original_language}`}
-          </h3>
-          <p>{getTodaysDate()}</p>
+    <div>
+      <div style={{ overflowX: "auto" }}>
+        <hr />
+        <div className="d-flex justify-content-start align-items-center ms-5">
+          <img
+            style={{
+              maxWidth: "60px",
+              height: "80px",
+              borderRadius: "10%",
+            }}
+            src={
+              movieDetails.poster_path
+                ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
+                : "/svg's/error-svgrepo-com.svg"
+            }
+            alt={`${movieDetails.title} poster`}
+          />
+          <div className="ms-3">
+            <h3>
+              {movieDetails.original_title} -
+              {movieDetails.original_language === "hi"
+                ? "Hindi"
+                : `${movieDetails.original_language}`}
+            </h3>
+            <p>{getTodaysDate()}</p>
+          </div>
         </div>
-      </div>
+        <hr />
 
-      <hr />
-      <Container style={{ width: "60%" }}>
-        <div>Diamond ₹250/-</div>
+        <Container>
+          <hr />
+          <div>Diamond ₹250/-</div>
+          <hr />
+          <div>{diamondSeatsButtons}</div>
+          <hr />
+          <div>Golden ₹200/-</div>
+          <hr />
+          <div>{goldenSeatsButtons}</div>
+          <hr />
+          <div>Silver ₹150/-</div>
+          <hr />
+          <div>{silverSeatsButtons}</div>
+          <div style={{ marginTop: "130px", width: "100%" }}>
+            <TheaterScreenSVG />
+            <p>
+              <strong>All eyes this way please!</strong>
+            </p>
+          </div>
+        </Container>
         <hr />
-        <div>{diamondSeatsButtons}</div>
-        <hr />
-        <div>Golden ₹200/-</div>
-        <hr />
-        <div>{goldenSeatsButtons}</div>
-        <hr />
-        <div>Silver ₹150/-</div>
-        <hr />
-        <div>{silverSeatsButtons}</div>
-        <div style={{ marginTop: "130px" }}>
-          <TheaterScreenSVG />
-          <p>
-            <strong>All eyes this way please!</strong>
-          </p>
+
+        <div>
+          <Button
+            className="me-2"
+            style={{ width: "35px", height: "35px" }}
+            variant="outline-primary"
+          >
+            1
+          </Button>
+          <strong className="me-3">Available</strong>
+          <Button
+            className="me-2"
+            style={{ width: "35px", height: "35px" }}
+            variant="primary"
+          >
+            2
+          </Button>
+          <strong className="me-3">Selected</strong>
+          <Button
+            className="me-2"
+            style={{ width: "35px", height: "35px" }}
+            variant="secondary"
+          >
+            3
+          </Button>
+          <strong className="me-3">Booked</strong>
         </div>
-      </Container>
-      <hr />
-      <div>
-        <Button
-          className="me-2"
-          style={{ width: "35px", height: "35px" }}
-          variant="outline-primary"
-        >
-          1
-        </Button>
-        <strong className="me-3">Available</strong>
-        <Button
-          className="me-2"
-          style={{ width: "35px", height: "35px" }}
-          variant="primary"
-        >
-          2
-        </Button>
-        <strong className="me-3">Selected</strong>
-        <Button
-          className="me-2"
-          style={{ width: "35px", height: "35px" }}
-          variant="secondary"
-        >
-          3
-        </Button>
-        <strong className="me-3">Booked</strong>
+
+        <ZoomingButton
+          btnLable="Book Tickets"
+          bottom="30%"
+          left="75%"
+          variant="success"
+          onClick={bookTicketsBtnHandler}
+        />
+
+        <ZoomingButton
+          btnLable="Clear Seats"
+          bottom="80%"
+          left="75.5%"
+          variant="danger"
+          onClick={clearSeatsBtnHandle}
+        />
+
+        <hr />
+        <hr />
       </div>
-      <ZoomingButton
-        btnLable="Book Tickets"
-        bottom="30%"
-        left="75%"
-        variant="success"
-        onClick={bookTicketsBtnHandler}
-      />
-      <ZoomingButton
-        btnLable="Clear Seats"
-        bottom="80%"
-        left="75.5%"
-        variant="danger"
-        onClick={clearSeatsBtnHandle}
-      />
-      <hr />
-      <hr />
-    </>
+    </div>
   );
 };
 

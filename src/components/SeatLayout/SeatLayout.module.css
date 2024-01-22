@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+.layout {
+  max-width: 60%;
+  margin: auto;
+  overflow-x: hidden; /* Hide horizontal overflow on smaller screens */
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    overflow-x: auto; /* Enable horizontal overflow for smaller screens */
+  }
+}

@@ -18,7 +18,6 @@ const MovieCard = ({
   const cardClickHandler = () => {
     navigate(`/movie-list/${page}/movie-details/${id}`);
     window.scrollTo(0, 0);
-    console.log("id", id);
   };
 
   return (
