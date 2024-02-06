@@ -1,6 +1,6 @@
 export const getMovieList = (page = 1) => {
   return fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=a9b9fc20b24e7aac267be09f72d57e26&page=${page}&region=IN&primary_release_year=2024`
+    `https://api.themoviedb.org/3/discover/movie?api_key=a9b9fc20b24e7aac267be09f72d57e26&page=${page}&with_original_language=hi&region=IN&primary_release_year=2024`
   ).then((res) => res.json());
 };
 
