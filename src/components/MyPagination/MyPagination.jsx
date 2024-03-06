@@ -10,29 +10,51 @@ const MyPagination = ({ active, totalPages, onPageChange }) => {
     navigate(`/movie-list/${pageNumber}`);
   };
 
+  let items = [];
+
+  let startPage = Math.max(1, active - 4);
+  let endPage = Math.min(totalPages, startPage + 9);
+
+  if (startPage !== 1) {
+    items.push(
+      <Pagination.Prev
+        key="prev"
+        onClick={() => handlePageChange(startPage - 10)}
+      />
+    );
+  }
+
+  for (let number = startPage; number <= endPage; number++) {
+    items.push(
+      <Pagination.Item
+        key={number}
+        onClick={() => handlePageChange(number)}
+        active={number === active}
+      >
+        {number}
+      </Pagination.Item>
+    );
+  }
+
+  if (endPage !== totalPages) {
+    items.push(
+      <Pagination.Next
+        key="next"
+        onClick={() => handlePageChange(endPage + 1)}
+      />
+    );
+  }
+
   return (
-    <div className="flex items-center justify-center mt-4 flex-wrap">
-      <Pagination size="sm" className="flex space-x-2">
-        {[...Array(totalPages)].map((_, index) => (
-          <Pagination.Item
-            key={index + 1}
-            onClick={() => handlePageChange(index + 1)}
-            active={index + 1 === Number(active)}
-            className="cursor-pointer transition duration-300 ease-in-out hover:bg-gray-300 rounded-full
-                        sm:hover:bg-transparent sm:hover:border-0 sm:hover:text-blue-500
-                        md:hover:bg-transparent md:hover:border-0 md:hover:text-blue-500"
-          >
-            {index + 1}
-          </Pagination.Item>
-        ))}
-      </Pagination>
-    </div>
+    <>
+      <Pagination size="sm">{items}</Pagination>
+    </>
   );
 };
 
 MyPagination.propTypes = {
-  active: PropTypes.string,
-  totalPages: PropTypes.number,
+  active: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
 };
 
